@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">SOUK LALLA</string>
+    <string name="Speaktest">Speaktest</string>
+    <string-array name="wilays">
+
+        <item>"اختر ولاية"</item>
+        <item>"أدرار"</item>
+        <item>"الشلف"</item>
+        <item>"الاغواط"</item>
+        <item>"أم البواقي"</item>
+        <item>"باتنة"</item>
+        <item>"بحاية"</item>
+        <item>"بسكرة"</item>
+        <item>"بشار"</item>
+        <item>"البليدة"</item>
+        <item>"البويرة"</item>
+        <item>"تمنراست"</item>
+        <item>"تبسة"</item>
+        <item>"تلمسان"</item>
+        <item>"تيارت"</item>
+        <item>"تيزي وزو" </item>
+        <item>"الجزائر"</item>
+        <item>"الجلفة"</item>
+        <item>"جيجل"</item>
+        <item>"سطيف"</item>
+        <item>"سعيدة"</item>
+        <item>"سكيكدة"</item>
+        <item>"سيدي بلعباس"</item>
+        <item>"عنابة"</item>
+        <item>"قالمة"</item>
+        <item>"قسنطينة"</item>
+        <item>"المدية"</item>
+        <item>"مستغانم"</item>
+        <item>"المسيلة"</item>
+        <item>"معسكر"</item>
+        <item>"ورقلة"</item>
+        <item>"وهران"</item>
+        <item>"البيض"</item>
+        <item>"إليزي"</item>
+        <item>"برج بوعريج"</item>
+        <item>"بومرداس"</item>
+        <item>"الطارف"</item>
+        <item>"تيندوف "</item>
+        <item>"تسمسيلت"</item>
+        <item>"الوادي"</item>
+        <item>"خنشلة"</item>
+        <item>"سوق اهراس"</item>
+        <item>"تبازة"</item>
+        <item>"ميلة"</item>
+        <item>"عين الدفلى"</item>
+        <item>"النعامة"</item>
+        <item>"عين تموشنت"</item>
+        <item>"غرداية"</item>
+        <item>"غليزان"</item>
+        <item>"تيميمون"</item>
+        <item>"برج باجي مختار"</item>
+        <item>"أولاد جلال"</item>
+        <item>"بني عباس"</item>
+        <item>"ان صالح"</item>
+        <item>"ان قزام"</item>
+        <item>"تقرت"</item>
+        <item>"جانت"</item>
+        <item>"المغير"</item>
+        <item>"المنيعة"</item>
+
+    </string-array>
+    <string-array name="category">
+        <item> "اختري صنفا" </item>
+        <item> "اطباق" </item>
+        <item>"حلويات"</item>
+        <item> "بلانر" </item>
+        <item>"خياطة"</item>
+        <item>"حياكة"</item>
+        <item>"فخار"</item>
+        <item>"مناسبات"</item>
+    </string-array>
+
+
+</resources>
