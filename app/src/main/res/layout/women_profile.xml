@@ -208,19 +208,19 @@
 
         </LinearLayout>
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/women_prof"
             android:layout_width="107dp"
             android:layout_height="105dp"
             android:layout_marginTop="32dp"
+            app:shapeAppearanceOverlay="@style/circular"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/user2" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/BSelectImage"
+            android:id="@+id/BSelectI1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="64dp"

@@ -73,7 +73,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.666"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/IVPreviewImage">
+            app:layout_constraintTop_toBottomOf="@+id/iv_user_prof">
 
             <TextView
                 android:id="@+id/textVie22"
@@ -205,11 +205,12 @@
 
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/IVPreviewImage"
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_user_prof"
             android:layout_width="107dp"
             android:layout_height="105dp"
             android:layout_marginTop="32dp"
+            app:shapeAppearanceOverlay="@style/circular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
@@ -224,8 +225,8 @@
             android:layout_marginTop="48dp"
             android:clickable="true"
             app:backgroundTint="@color/bg1"
-            app:layout_constraintStart_toStartOf="@+id/IVPreviewImage"
-            app:layout_constraintTop_toTopOf="@+id/IVPreviewImage"
+            app:layout_constraintStart_toStartOf="@+id/iv_user_prof"
+            app:layout_constraintTop_toTopOf="@+id/iv_user_prof"
             app:srcCompat="@drawable/camera"
             tools:ignore="SpeakableTextPresentCheck" />
 

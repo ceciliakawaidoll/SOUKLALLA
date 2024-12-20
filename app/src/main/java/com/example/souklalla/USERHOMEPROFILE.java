@@ -22,6 +22,7 @@ public class USERHOMEPROFILE extends AppCompatActivity {
         ImageView help =findViewById(R.id.iv_help);
         ImageView profile =findViewById(R.id.iv_profiledit);
         FloatingActionButton flot= findViewById(R.id.flot12);
+        FloatingActionButton flotp= findViewById(R.id.ft_edit_profile);
         ImageView menu=findViewById(R.id.iv_menu12);
         ImageView like=findViewById(R.id.iv_like12);
         ImageView setting=findViewById(R.id.iv_setting12);
@@ -53,10 +54,15 @@ public class USERHOMEPROFILE extends AppCompatActivity {
         });
 
         flot.setOnClickListener(v -> {
-            Intent intent = new Intent(USERHOMEPROFILE.this, UserEditProfile.class);
+            Intent intent = new Intent(USERHOMEPROFILE.this, USERASKPRODUCT.class);
             startActivity(intent);
         });
 
+
+        flotp.setOnClickListener(v -> {
+            Intent intent = new Intent(USERHOMEPROFILE.this, UserEditProfile.class);
+            startActivity(intent);
+        });
 
         home.setOnClickListener(v -> {
             Intent intent = new Intent(USERHOMEPROFILE.this, USERCATEGORY.class);

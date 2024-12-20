@@ -50,5 +50,6 @@ dependencies {
 
     implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
     implementation("com.google.firebase:firebase-analytics")
+    implementation ("com.github.dhaval2404:imagepicker:2.1")
 }
 

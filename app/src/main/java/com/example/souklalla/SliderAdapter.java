@@ -32,9 +32,16 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderView
     @Override
     public void onBindViewHolder(@NonNull SliderViewHolder holder, int position) {
 holder.imageView.setImageResource(sliderItems.get(position).getImage());
-if (position==sliderItems.size()-2){
-    viewPager2.post(runnable);
-}
+        // Adjust margins for padding effect
+        ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams();
+        layoutParams.leftMargin = 40; // Adjust the left margin
+        layoutParams.rightMargin = 40; // Adjust the right margin
+        holder.itemView.setLayoutParams(layoutParams);
+
+        // Looping behavior for the slider
+        if (position == sliderItems.size() - 2) {
+            viewPager2.post(runnable);
+        }
     }
 
     @Override
@@ -42,22 +49,20 @@ if (position==sliderItems.size()-2){
         return sliderItems.size();
     }
 
-    class SliderViewHolder extends RecyclerView.ViewHolder{
+    class SliderViewHolder extends RecyclerView.ViewHolder {
+        RoundedImageView imageView;
 
-         RoundedImageView imageView;
-
-         SliderViewHolder(@NonNull View itemView) {
+        SliderViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageSlide);
         }
-
-
     }
-    private Runnable runnable=new Runnable() {
+
+    private final Runnable runnable = new Runnable() {
         @Override
         public void run() {
-        sliderItems.addAll(sliderItems);
-        notifyDataSetChanged();
+            sliderItems.addAll(sliderItems);
+            notifyDataSetChanged();
         }
     };
 }
