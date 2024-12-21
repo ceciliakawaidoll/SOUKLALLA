@@ -26,9 +26,9 @@
             android:id="@+id/cardView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+
             android:layout_marginTop="70dp"
-            android:layout_marginEnd="20dp"
+            
             app:cardBackgroundColor="@color/transp"
             app:cardElevation="0dp"
             app:cardMaxElevation="0dp"

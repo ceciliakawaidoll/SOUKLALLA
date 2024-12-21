@@ -9,7 +9,8 @@
     tools:context=".LOGO">
 
     <ImageView
-        android:id="@+id/LOGO"
+        android:id="@+id/iv_LOGO"
+        android:transitionName="LOGO"
         android:layout_width="233dp"
         android:layout_height="317dp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- ON state -->
+    <item android:state_checked="true">
+        <shape android:shape="oval">
+            <solid android:color="@color/burgundy" /> <!-- White thumb for ON state -->
+            <size
+                android:width="20dp"
+                android:height="20dp" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/burgundy" /> <!-- Green border for ON state -->
+        </shape>
+    </item>
+    <!-- OFF state -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/pink" /> <!-- Gray thumb for OFF state -->
+            <size
+                android:width="20dp"
+                android:height="20dp" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/pink" /> <!-- Dark gray border for OFF state -->
+        </shape>
+    </item>
+</selector>

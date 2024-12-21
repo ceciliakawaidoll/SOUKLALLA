@@ -129,6 +129,8 @@
                         android:layout_centerInParent="true"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="5dp"
+                        android:thumb="@drawable/custom_switch_thumb"
+                        android:track="@drawable/custom_switch_track"
 
                         android:gravity="center_vertical"
                         tools:ignore="UseSwitchCompatOrMaterialXml,TouchTargetSizeCheck" />

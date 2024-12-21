@@ -21,6 +21,7 @@ private ViewPager2 viewPager2;
 private List<SliderItem>sliderItems;
 private SliderAdapter adapter;
 private Handler sliderHandler =new Handler();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +77,7 @@ private Handler sliderHandler =new Handler();
             public void onPageScrollStateChanged(int state) {
                 super.onPageScrollStateChanged(state);
                 sliderHandler.removeCallbacks(sliderRunnable);
-                sliderHandler.postDelayed(sliderRunnable, 2000);
+                sliderHandler.postDelayed(sliderRunnable, 1000);
             }
         });
 
@@ -98,6 +99,7 @@ private Handler sliderHandler =new Handler();
         public void run() {
             int nextItem = (viewPager2.getCurrentItem() + 1) % sliderItems.size();
             viewPager2.setCurrentItem(nextItem, true);
+
         }
     };
 
@@ -110,6 +112,6 @@ private Handler sliderHandler =new Handler();
     @Override
     protected void onResume() {
         super.onResume();
-        sliderHandler.postDelayed(sliderRunnable, 2000);
+        sliderHandler.postDelayed(sliderRunnable, 1000);
     }
 }
