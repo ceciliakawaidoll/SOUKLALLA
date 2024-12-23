@@ -3,9 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.souklalla">
 
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -21,6 +23,13 @@
         <activity
             android:name=".WomenEditProfile"
             android:exported="false" />
+
+
+        <activity android:name=".UserCreatacount" />
+
+
+
+
         <activity
             android:name=".UserEditProfile"
             android:exported="false" />
@@ -112,9 +121,7 @@
             android:name=".TERMSWOMEN"
             android:exported="true" />
 
-        <meta-data
-            android:name="com.google.gms.ads.APPLICATION_ID"
-            android:value=" ca-app-pub-3940256099942544/2247696110" />
+
 
         <activity
             android:name=".USERCATEGORY"

@@ -12,6 +12,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class USERHOMEPROFILE extends AppCompatActivity {
 
+
+
+    String userEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +32,12 @@ public class USERHOMEPROFILE extends AppCompatActivity {
         ImageView home=findViewById(R.id.iv_home12);
         CardView BACK = findViewById(R.id.cd_back);
 
+
+        userEmail = getIntent().getStringExtra("user_email");
+
         BACK.setOnClickListener(v -> {
             Intent intent = new Intent(USERHOMEPROFILE.this, USERCATEGORY.class);
+            intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
 
@@ -50,6 +57,7 @@ public class USERHOMEPROFILE extends AppCompatActivity {
 
        profile.setOnClickListener(v -> {
             Intent intent = new Intent(USERHOMEPROFILE.this, USERPROFILE.class);
+           intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
 
