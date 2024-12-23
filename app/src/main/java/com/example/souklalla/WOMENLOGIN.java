@@ -77,7 +77,7 @@ public class WOMENLOGIN extends AppCompatActivity {
                             if (Objects.equals(storedPassword, Pass)) {
                                 Toast.makeText(WOMENLOGIN.this, "تم تسجيل الدخول بنجاح!", Toast.LENGTH_SHORT).show();
                                 // Navigate to the next activity
-                                Intent intent = new Intent(WOMENLOGIN.this, WomenProfilehome.class);
+                                Intent intent = new Intent(WOMENLOGIN.this, WOMENHOMEPAGE.class);
 
                                 intent.putExtra("women_email", Email);
                                 startActivity(intent);

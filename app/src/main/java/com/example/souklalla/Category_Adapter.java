@@ -16,10 +16,10 @@ import java.util.List;
 
 public class Category_Adapter  extends RecyclerView.Adapter<Category_Adapter.Category_holder>{
 
-     List<Category> category;
+     List<product_helperclass> category;
     Context context;
 
-    public Category_Adapter(List<Category> category, Context context) {
+    public Category_Adapter(List<product_helperclass> category, Context context) {
         this.category = category;
         this.context = context;
     }
@@ -36,7 +36,12 @@ public class Category_Adapter  extends RecyclerView.Adapter<Category_Adapter.Cat
     @Override
     public void onBindViewHolder(@NonNull Category_holder holder, int position) {
         holder.itemView.setTag(position);
-        holder.product_name.setText(category.get(position).getProduct_name());
+        holder.product_name.setText(category.get(position).getProd_name());
+        holder.product_price.setText(category.get(position).getProd_price());
+        holder.prod_wname.setText(category.get(position).getProd_wname());
+        holder.product_img.setText(category.get(position).getProd_img());
+
+
         holder.card.setOnClickListener(v -> {
             Intent intent=new Intent(context,PRODUCTBUY.class);
             context.startActivity(intent);
@@ -50,12 +55,15 @@ public class Category_Adapter  extends RecyclerView.Adapter<Category_Adapter.Cat
     }
 
     public class Category_holder extends RecyclerView.ViewHolder{
-        TextView product_name ;
+        TextView product_name , product_price , prod_wname, product_img;
         CardView card ;
 
         public Category_holder(@NonNull View itemView) {
             super(itemView);
             product_name = itemView.findViewById(R.id.tv_product_name);
+            product_price = itemView.findViewById(R.id.tv_price);
+            prod_wname = itemView.findViewById(R.id.tv_women_name);
+            product_img = itemView.findViewById(R.id.imageView6);
             card = itemView.findViewById(R.id.cd_show);
         }
     }

@@ -42,6 +42,13 @@ dependencies {
     //implementation("com.google.android.gms:play-services-ads:23.6.0")
     implementation ("com.google.android.gms:play-services-measurement-api:22.1.2")
 
+
+
+    implementation ("com.github.bumptech.glide:glide:4.15.1")
+
+
+
+
     implementation("androidx.gridlayout:gridlayout:1.0.0")
     implementation("com.google.firebase:firebase-auth:23.1.0")
     //implementation("com.google.android.gms:play-services-ads:23.6.0")

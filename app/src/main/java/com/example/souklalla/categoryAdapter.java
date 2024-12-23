@@ -52,12 +52,15 @@ public class categoryAdapter extends BaseAdapter {
         ImageView imageView=convertView.findViewById(R.id.gridimage);
         TextView textView=convertView.findViewById(R.id.gridtext);
         CardView card = convertView.findViewById(R.id.cd_category);
+        textView.setText(categoryname[position]);
         imageView.setImageResource(image[position]);
         card.setOnClickListener(v -> {
             Intent intent=new Intent(context,USERCATEGORYSHOW.class);
+
+            intent.putExtra("type", categoryname[position]);
             context.startActivity(intent);
         });
-        textView.setText(categoryname[position]);
+
         return convertView;
     }
 }

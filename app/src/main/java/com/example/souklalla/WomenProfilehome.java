@@ -33,16 +33,19 @@ public class WomenProfilehome extends AppCompatActivity {
         // Add listeners
         flot.setOnClickListener(v -> {
             Intent intent = new Intent(WomenProfilehome.this, PRODUCTADD.class);
+            intent.putExtra("women_email", womenEmail);
             startActivity(intent);
         });
 
         edfloat.setOnClickListener(v -> {
             Intent intent = new Intent(WomenProfilehome.this, WomenEditProfile.class);
+            intent.putExtra("women_email", womenEmail);
             startActivity(intent);
         });
 
         passmanager.setOnClickListener(v -> {
             Intent intent = new Intent(WomenProfilehome.this, WomenPassmanage.class);
+            intent.putExtra("women_email", womenEmail);
             startActivity(intent);
         });
 
@@ -55,6 +58,7 @@ public class WomenProfilehome extends AppCompatActivity {
 
         imageView.setOnClickListener(v -> {
             Intent intent = new Intent(WomenProfilehome.this, WomenLogoutask.class);
+            intent.putExtra("women_email", womenEmail);
             startActivity(intent);
         });
 

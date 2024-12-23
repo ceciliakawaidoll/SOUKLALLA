@@ -11,7 +11,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class WomenNotification extends AppCompatActivity {
-
+String womenEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,8 +19,10 @@ public class WomenNotification extends AppCompatActivity {
         setContentView(R.layout.women_notification);
         CardView back= findViewById(R.id.cd_back);
 
+        womenEmail = getIntent().getStringExtra("women_email");
         back.setOnClickListener(v -> {
             Intent intent = new Intent(WomenNotification.this, WOMENHOMEPAGE.class);
+            intent.putExtra("women_email", womenEmail);
             startActivity(intent);
         });
     }
