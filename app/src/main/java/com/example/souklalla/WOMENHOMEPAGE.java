@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class WOMENHOMEPAGE extends AppCompatActivity {
-
+    String womenEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +18,8 @@ public class WOMENHOMEPAGE extends AppCompatActivity {
         setContentView(R.layout.women_homepage);
         FloatingActionButton ft = findViewById(R.id.flotadd);
         ImageView noti= findViewById(R.id.iv_notifi);
+
+        womenEmail = getIntent().getStringExtra("women_email");
         ImageView profile= findViewById(R.id.iv_profile);
 
         ft.setOnClickListener(v -> {
@@ -27,6 +29,7 @@ public class WOMENHOMEPAGE extends AppCompatActivity {
 
         profile.setOnClickListener(v -> {
             Intent intent = new Intent(WOMENHOMEPAGE.this, WomenProfilehome.class);
+            intent.putExtra("women_email", womenEmail);
             startActivity(intent);
         });
 

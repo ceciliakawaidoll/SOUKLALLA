@@ -16,6 +16,7 @@ import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;*/
 
 public class USERCATEGORY extends AppCompatActivity {
+    String userEmail;
 
     String[] categoryname ={"الأطباق","الحلويات","بلانر","الخياطة ","الحياكة","الفخار","المناسبات"};
 
@@ -38,6 +39,10 @@ public class USERCATEGORY extends AppCompatActivity {
         ImageView menu=findViewById(R.id.iv_menu);
         ImageView like=findViewById(R.id.iv_like);
         ImageView setting=findViewById(R.id.iv_setting);
+
+        userEmail = getIntent().getStringExtra("user_email");
+
+
         ImageView home=findViewById(R.id.iv_home);
         ImageView profi=findViewById(R.id.iv_profile);
         ImageView notifi=findViewById(R.id.iv_notifi);
@@ -70,8 +75,13 @@ public class USERCATEGORY extends AppCompatActivity {
         });
 
        profi.setOnClickListener(v -> {
-            Intent intent = new Intent(USERCATEGORY.this, USERHOMEPROFILE.class);
-            startActivity(intent);
+           if (userEmail == null) {
+               Intent intent = new Intent(USERCATEGORY.this, UserLogin.class);
+               startActivity(intent);
+           }else {
+           Intent intent = new Intent(USERCATEGORY.this, USERHOMEPROFILE.class);
+           intent.putExtra("user_email", userEmail);
+           startActivity(intent);}
         });
 
        ft.setOnClickListener(v -> {

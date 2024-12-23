@@ -105,12 +105,16 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/editTextTextPassword3"
+                        android:id="@+id/women_fullname"
                         android:layout_width="match_parent"
                         android:layout_height="51dp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
                         android:background="@color/transp"
                         android:ems="10"
                         android:inputType="text"
+                        android:textDirection="rtl"
+                        android:textSize="24sp"
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                 </LinearLayout>
@@ -148,13 +152,17 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/editTextTextPassword4"
+                        android:id="@+id/women_email"
                         android:layout_width="match_parent"
                         android:layout_height="51dp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
                         android:layout_weight="1"
                         android:background="@color/transp"
                         android:ems="10"
                         android:inputType="text"
+                        android:textDirection="rtl"
+                        android:textSize="24sp"
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
                 </LinearLayout>
 
@@ -193,13 +201,17 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/editTextTextPassword6"
+                        android:id="@+id/women_phone"
                         android:layout_width="match_parent"
                         android:layout_height="51dp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
                         android:layout_weight="1"
                         android:background="@color/transp"
                         android:ems="10"
                         android:inputType="number"
+                        android:textDirection="rtl"
+                        android:textSize="24sp"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
                 </LinearLayout>
 

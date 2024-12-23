@@ -80,7 +80,7 @@
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/editTextText"
+                        android:id="@+id/user_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -95,7 +95,7 @@
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <EditText
-                        android:id="@+id/editTextText2"
+                        android:id="@+id/user_lastname"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
@@ -108,7 +108,7 @@
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <EditText
-                        android:id="@+id/editTextTextEmailAddress"
+                        android:id="@+id/user_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
@@ -121,12 +121,13 @@
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <EditText
-                        android:id="@+id/editTextPhone"
+                        android:id="@+id/user_phone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:backgroundTint="@color/burgundy"
                         android:ems="10"
+                        android:maxLength="10"
                         android:hint="رقم الهاتف"
                         android:inputType="phone"
                         android:textAlignment="viewEnd"
@@ -153,7 +154,7 @@
                         android:background="@color/burgundy" />
 
                     <EditText
-                        android:id="@+id/editTextTextPassword2"
+                        android:id="@+id/user_pass1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -169,7 +170,7 @@
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <EditText
-                        android:id="@+id/editTextTextPassword"
+                        android:id="@+id/user_pass2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
