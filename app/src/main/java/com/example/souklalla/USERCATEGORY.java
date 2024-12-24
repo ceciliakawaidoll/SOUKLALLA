@@ -18,7 +18,7 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 public class USERCATEGORY extends AppCompatActivity {
     String userEmail;
 
-    String[] categoryname ={"الأطباق","الحلويات","بلانر","الخياطة ","الحياكة","الفخار","المناسبات"};
+    String[] categoryname ={"الأطباق","الحلويات","بلانر","الخياطة","الحياكة","الفخار","المناسبات"};
 
     int[] image ={R.drawable.foood,R.drawable.candy,R.drawable.planner,R.drawable.sewing_2,R.drawable.knitting,R.drawable.pottery,R.drawable.party};
 

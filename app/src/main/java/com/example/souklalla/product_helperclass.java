@@ -71,4 +71,7 @@ public class product_helperclass {
         this.prod_type = prod_type;
         this.prodId = prodId;
     }
+    public product_helperclass() {
+    }
+
 }

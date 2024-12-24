@@ -3,9 +3,11 @@ package com.example.souklalla;
 import android.content.Context;
 import android.content.Intent;
 import android.icu.util.ULocale;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -39,7 +41,8 @@ public class Category_Adapter  extends RecyclerView.Adapter<Category_Adapter.Cat
         holder.product_name.setText(category.get(position).getProd_name());
         holder.product_price.setText(category.get(position).getProd_price());
         holder.prod_wname.setText(category.get(position).getProd_wname());
-        holder.product_img.setText(category.get(position).getProd_img());
+        holder.product_img.setImageResource(R.drawable.candy);
+
 
 
         holder.card.setOnClickListener(v -> {
@@ -55,7 +58,8 @@ public class Category_Adapter  extends RecyclerView.Adapter<Category_Adapter.Cat
     }
 
     public class Category_holder extends RecyclerView.ViewHolder{
-        TextView product_name , product_price , prod_wname, product_img;
+        TextView product_name , product_price , prod_wname;
+        ImageView product_img;
         CardView card ;
 
         public Category_holder(@NonNull View itemView) {
