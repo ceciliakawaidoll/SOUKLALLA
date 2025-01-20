@@ -1,9 +1,14 @@
 package com.example.souklalla;
 
+import static android.media.CamcorderProfile.get;
+
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.icu.util.ULocale;
 import android.net.Uri;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,12 +46,27 @@ public class Category_Adapter  extends RecyclerView.Adapter<Category_Adapter.Cat
         holder.product_name.setText(category.get(position).getProd_name());
         holder.product_price.setText(category.get(position).getProd_price());
         holder.prod_wname.setText(category.get(position).getProd_wname());
-        holder.product_img.setImageResource(R.drawable.candy);
+        String imageBase64 = category.get(position).getProd_img();
+        if (imageBase64 != null) {
+            byte[] decodedString = Base64.decode(imageBase64, Base64.DEFAULT);
+            Bitmap decodedBitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+            holder.product_img.setImageBitmap(decodedBitmap);
+        }
 
-
+        else {
+            holder.product_img.setImageResource(R.drawable.photoo);
+        }
+        String prod_des = category.get(position).getProd_desc();
+        String prod_name = category.get(position).getProd_name();
+        String prod_price = category.get(position).getProd_price();
+        String prod_img = category.get(position).getProd_img();
 
         holder.card.setOnClickListener(v -> {
             Intent intent=new Intent(context,PRODUCTBUY.class);
+           intent.putExtra("prod_desc", prod_des);
+           intent.putExtra("prod_name", prod_name);
+           intent.putExtra("prod_price", prod_price);
+           intent.putExtra("prod_img", prod_img);
             context.startActivity(intent);
         });
 

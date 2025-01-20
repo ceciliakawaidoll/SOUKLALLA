@@ -4,7 +4,8 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 
 public class product_helperclass {
-    String prod_name,prod_img,prod_price,prod_desc,prod_wname,prod_type,prodId;
+    String prod_name,prod_price,prod_desc,prod_wname,prod_type,prodId;
+    String prod_img;
 
     public String getProd_name() {
         return prod_name;

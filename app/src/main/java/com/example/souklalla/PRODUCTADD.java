@@ -6,6 +6,8 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -31,6 +33,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
 public class PRODUCTADD extends AppCompatActivity {
     FloatingActionButton BSelectImage;
     ImageView IVPreviewImage;
@@ -39,6 +44,7 @@ public class PRODUCTADD extends AppCompatActivity {
 
 
     public String fullName;
+    private Bitmap selectedImageBitmap;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,7 +130,7 @@ public class PRODUCTADD extends AppCompatActivity {
                 String Ptype = spinner.getSelectedItem().toString();
 
 
-                Uri pimage= Uri.parse(IVPreviewImage.getImageMatrix().toString().trim());
+                String base64Image = encodeImageToBase64(selectedImageBitmap);
 
 
                 // Validate inputs
@@ -140,7 +146,7 @@ public class PRODUCTADD extends AppCompatActivity {
                 String prodId = newUserRef.getKey(); // Get the generated ID
 
                 // Create a new helper class instance with the women's data
-                product_helperclass helperclass= new product_helperclass(Pname,pimage.toString(),Pprice,Pdesc,fullName,Ptype,prodId);
+                product_helperclass helperclass= new product_helperclass(Pname,base64Image,Pprice,Pdesc,fullName,Ptype,prodId);
 
                 // Store the data in Firebase
                 newUserRef.setValue(helperclass);
@@ -216,15 +222,34 @@ public class PRODUCTADD extends AppCompatActivity {
 
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Uri uri = data.getData();
-        IVPreviewImage.setImageURI(uri);
-        IVPreviewImage.setTag(uri.toString());
+        if (data != null) {
+            Uri uri = data.getData();
+            IVPreviewImage.setImageURI(uri);
+            selectedImageBitmap = getBitmapFromUri(uri); // Convert Uri to Bitmap
+        }
     }
 
+    private Bitmap getBitmapFromUri(Uri uri) {
+        try {
+            return MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private String encodeImageToBase64(Bitmap bitmap) {
+        if (bitmap == null) {
+            return null;
+        }
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+        byte[] byteArray = byteArrayOutputStream.toByteArray();
+        return Base64.encodeToString(byteArray, Base64.DEFAULT);
+    }
 }
 
 

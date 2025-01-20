@@ -54,6 +54,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="20dp"
+                    android:gravity="right"
                     android:text="إسم العاملة"
                     android:textSize="16sp" />
 

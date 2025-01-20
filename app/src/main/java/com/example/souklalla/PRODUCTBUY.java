@@ -1,6 +1,7 @@
 package com.example.souklalla;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,12 +22,28 @@ public class PRODUCTBUY extends AppCompatActivity {
         Button buy = findViewById(R.id.btn_login_W);
         ImageView plus= findViewById(R.id.iv_plus);
         ImageView minus= findViewById(R.id.iv_minus);
+        ImageView im= findViewById(R.id.LOGO);
         TextView price= findViewById(R.id.tv_price);
-
         TextView number = findViewById(R.id.tv_number);
         TextView name = findViewById(R.id.tv_namep);
         TextView desc = findViewById(R.id.tv_desc_p);
         CardView back =findViewById(R.id.cd_back);
+
+
+
+        Intent inten;
+        inten = getIntent();
+        String nam=inten.getStringExtra("product_name");
+        name.setText(nam);
+        String des=inten.getStringExtra("product_desc");
+        desc.setText(des);
+        int pric=inten.getIntExtra("product_price",0);
+        price.setText(String.valueOf(pric));
+        int img=inten.getIntExtra("product_img",0);
+        im.setImageResource(img);
+
+
+
 
 
         back.setOnClickListener(v -> {
@@ -38,18 +55,12 @@ public class PRODUCTBUY extends AppCompatActivity {
             startActivity(intent);
         });
 
-        Intent intent;
-        intent = getIntent();
-        String namep = intent.getStringExtra("product_name");
-        name.setText("" + namep);
-        String pric = intent.getStringExtra("prod_price");
-        String descp = intent.getStringExtra("prod_desc");
-        desc.setText("" + descp);
+
 
         plus.setOnClickListener(v -> {
             int num = Integer.parseInt(number.getText().toString());
             number.setText(String.valueOf(num+1));
-            price.setText(String.valueOf((num+1)*1500));
+            price.setText(String.valueOf((num+1)*pric));
         });
         minus.setOnClickListener(v -> {
             int num = Integer.parseInt(number.getText().toString());
@@ -57,7 +68,7 @@ public class PRODUCTBUY extends AppCompatActivity {
 
             if (num > 1) {
                 number.setText(String.valueOf(num - 1));
-                price.setText(String.valueOf((num - 1) * 1500));
+                price.setText(String.valueOf((num - 1) * pric));
             } else {
                 //Toast.makeText(getApplicationContext(), "Cannot go below 0", Toast.LENGTH_SHORT).show();
             }

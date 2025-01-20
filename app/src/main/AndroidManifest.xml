@@ -4,6 +4,8 @@
     package="com.example.souklalla">
 
 
+
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -159,6 +161,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
 
         <meta-data
             android:name="preloaded_fonts"
