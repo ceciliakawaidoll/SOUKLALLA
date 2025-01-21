@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/shopping"
-    tools:context=".User.PRODUCTBUY">
+    tools:context=".PRODUCTBUY">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cd_back"
@@ -14,10 +14,10 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="320dp"
 
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="13dp"
         app:cardBackgroundColor="@color/burgundy"
         app:cardCornerRadius="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView2"
+        app:layout_constraintBottom_toTopOf="@+id/cardView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"

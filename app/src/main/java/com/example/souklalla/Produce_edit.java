@@ -1,6 +1,5 @@
 package com.example.souklalla;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -13,91 +12,63 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
 
-public class PRODUCTADD extends AppCompatActivity {
+public class Produce_edit extends AppCompatActivity {
     FloatingActionButton BSelectImage;
     ImageView IVPreviewImage;
     FirebaseDatabase database;
     DatabaseReference ref;
-
-
-    public String fullName;
+    public String womenEmail;
     private Bitmap selectedImageBitmap;
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.product_add);
-
+        setContentView(R.layout.produce_edit);
         Spinner spinner = findViewById(R.id.prod_type);
         BSelectImage = findViewById(R.id.BSelectImage);
         IVPreviewImage = findViewById(R.id.iv_addprod);
         TextView pname=findViewById(R.id.prod_name);
         TextView pdesc=findViewById(R.id.prod_desc);
         TextView pprice=findViewById(R.id.prod_price);
-        Button add=findViewById(R.id.button7);
+        Button etit=findViewById(R.id.button7);
 
         CardView BACK = findViewById(R.id.cd_back);
+        womenEmail = getIntent().getStringExtra("women_email");
+        String prodId = getIntent().getStringExtra("prod_id");
 
 
-        String email = getIntent().getStringExtra("women_email");
-       if (email == null) {
-           // Toast.makeText(this, "حدث خطأ أثناء تحميل البيانات!", Toast.LENGTH_SHORT).show();
-            finish();
-            return;
-        }
-// Reference to the "Users" node in the database
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Womens");
-
-        // Query to find the user by email
-        Query query = databaseReference.orderByChild("women_email").equalTo(email);
-
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-                        // Fetch and display user data
-                        String name = userSnapshot.child("women_name").getValue(String.class);
-                        String lastName = userSnapshot.child("women_lastn").getValue(String.class);
-
-                        // Concatenate name and last name
-                        fullName = (name != null ? name : "") + " " + (lastName != null ? lastName : "");
-
-                    }
-                } else {
-                    Toast.makeText(PRODUCTADD.this, "لا توجد بيانات لهذا المستخدم!", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(PRODUCTADD.this, "حدث خطأ أثناء تحميل البيانات!", Toast.LENGTH_SHORT).show();
-            }
+        BACK.setOnClickListener(v -> {
+            Intent intent = new Intent(Produce_edit.this, WOMENHOMEPAGE.class);
+            intent.putExtra("women_email",womenEmail);
+            startActivity(intent);
         });
+
+
+
+
 
 
 
@@ -107,7 +78,7 @@ public class PRODUCTADD extends AppCompatActivity {
         BSelectImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ImagePicker.with(PRODUCTADD.this)
+                ImagePicker.with(Produce_edit.this)
                         .crop()
                         .cropSquare()//Crop image(Optional), Check Customization for more option
                         .compress(1024)            //Final image size will be less than 1 MB(Optional)
@@ -119,8 +90,7 @@ public class PRODUCTADD extends AppCompatActivity {
 
 
 
-
-        add.setOnClickListener(new View.OnClickListener() {
+        etit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Get input values
@@ -133,42 +103,61 @@ public class PRODUCTADD extends AppCompatActivity {
                 String base64Image = encodeImageToBase64(selectedImageBitmap);
 
 
-                // Validate inputs
-                if (Pname.isEmpty() || Pdesc.isEmpty() || Pprice.isEmpty()|| Ptype.equals("اختري صنفا") ) {
-                    Toast.makeText(PRODUCTADD.this, "يجب ملئ جميع البيانات", Toast.LENGTH_SHORT).show();
-                    return;
+
+
+
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Products");
+
+            //prod_name,prod_price,prod_desc,prod_wname,prod_type,prod_img
+
+                HashMap<String, Object> updates = new HashMap<>();
+                if (!Pname.isEmpty()) {
+                    updates.put("prod_name", Pname);
+                }
+                if (!Pdesc.isEmpty()) {
+                    updates.put("prod_desc", Pdesc);
+                }
+                if (!Pprice.isEmpty()) {
+                    updates.put("prod_price", Pprice);
+                }
+                if (!Ptype.equals("اختري صنفا")) {
+                    updates.put("prod_type", Ptype);
+                }
+                if (base64Image != null) {
+                    updates.put("prod_img", base64Image);
                 }
 
-                // Create a new unique ID for the user
-                database = FirebaseDatabase.getInstance();
-                ref = database.getReference("Products");
-                DatabaseReference newUserRef = ref.push(); // Generate a unique ID for the new user
-                String prodId = newUserRef.getKey(); // Get the generated ID
+                databaseReference.child(prodId).updateChildren(updates)
+                        .addOnSuccessListener(aVoid -> {
+                           // Toast.makeText(Produce_edit.this, "تم تعديل المنتج بنجاح", Toast.LENGTH_SHORT).show();
+                        })
+                        .addOnFailureListener(e -> {
+                            Toast.makeText(Produce_edit.this, "فشل التعديل: " + e.getMessage(), Toast.LENGTH_SHORT).show();
 
-                // Create a new helper class instance with the women's data
-                product_helperclass helperclass= new product_helperclass(Pname,base64Image,Pprice,Pdesc,fullName,Ptype,prodId);
 
-                // Store the data in Firebase
-                newUserRef.setValue(helperclass);
 
-                // Show success message
-               // Toast.makeText(PRODUCTADD.this, "تمت إضافة المنتج بنجاح!", Toast.LENGTH_SHORT).show();
+                        });
 
-                Intent intent = new Intent(PRODUCTADD.this, WOMENHOMEPAGE.class);
-                intent.putExtra("women_email", email);
+                Intent intent = new Intent(Produce_edit.this, WOMENHOMEPAGE.class);
+                intent.putExtra("women_email",womenEmail);
                 startActivity(intent);
+
             }
         });
 
 
 
-        // Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(new ColorDrawable(getColor(R.color.pink)));
 
-        BACK.setOnClickListener(v -> {
-            Intent intent = new Intent(PRODUCTADD.this, WOMENHOMEPAGE.class);
-            intent.putExtra("women_email", email);
-            startActivity(intent);
-        });
+
+
+
+
+
+
+
+
+
+
 
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -251,9 +240,3 @@ public class PRODUCTADD extends AppCompatActivity {
         return Base64.encodeToString(byteArray, Base64.DEFAULT);
     }
 }
-
-
-
-
-
-

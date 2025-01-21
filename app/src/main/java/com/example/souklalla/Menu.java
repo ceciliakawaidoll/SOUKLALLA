@@ -3,6 +3,7 @@ package com.example.souklalla;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,46 +23,61 @@ public class Menu extends AppCompatActivity {
         ImageView im5 = findViewById(R.id.knitting);
         ImageView im6 = findViewById(R.id.pottery);
         ImageView im7 = findViewById(R.id.partty);
+        TextView type1=findViewById(R.id.tv_food);
+        TextView type2=findViewById(R.id.tv_candy);
+        TextView type3=findViewById(R.id.tv_planner);
+        TextView type4=findViewById(R.id.tv_sewing);
+        TextView type5=findViewById(R.id.tv_knitting);
+        TextView type6=findViewById(R.id.tv_pottery);
+        TextView type7=findViewById(R.id.tv_party);
+
 
 
         im1.setOnClickListener(v -> {
                 Intent intent = new Intent(Menu.this, USERCATEGORYSHOW.class);
+                intent.putExtra("type1",type1.getText().toString());
             startActivity(intent);
         });
 
 
         im2.setOnClickListener(v -> {
             Intent intent = new Intent(Menu.this, USERCATEGORYSHOW.class);
+            intent.putExtra("type2",type2.getText().toString());
             startActivity(intent);
         });
 
 
         im3.setOnClickListener(v -> {
             Intent intent = new Intent(Menu.this, USERCATEGORYSHOW.class);
+            intent.putExtra("type3",type3.getText().toString());
             startActivity(intent);
         });
 
 
         im4.setOnClickListener(v -> {
             Intent intent = new Intent(Menu.this, USERCATEGORYSHOW.class);
+            intent.putExtra("type4",type4.getText().toString());
             startActivity(intent);
         });
 
 
         im5.setOnClickListener(v -> {
             Intent intent = new Intent(Menu.this, USERCATEGORYSHOW.class);
+            intent.putExtra("type5",type5.getText().toString());
             startActivity(intent);
         });
 
 
         im6.setOnClickListener(v -> {
             Intent intent = new Intent(Menu.this, USERCATEGORYSHOW.class);
+            intent.putExtra("type6",type6.getText().toString());
             startActivity(intent);
         });
 
 
         im7.setOnClickListener(v -> {
             Intent intent = new Intent(Menu.this, USERCATEGORYSHOW.class);
+            intent.putExtra("type7",type7.getText().toString());
             startActivity(intent);
         });
 

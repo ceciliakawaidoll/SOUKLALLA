@@ -80,7 +80,7 @@
                         tools:ignore="DuplicateIds" />
 
                     <TextView
-                        android:id="@+id/textView240"
+                        android:id="@+id/tv_food"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -126,7 +126,7 @@
                         tools:ignore="DuplicateIds" />
 
                     <TextView
-                        android:id="@+id/textView240"
+                        android:id="@+id/tv_candy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -171,7 +171,7 @@
                         tools:ignore="DuplicateIds" />
 
                     <TextView
-                        android:id="@+id/textView204"
+                        android:id="@+id/tv_planner"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -217,7 +217,7 @@
                         tools:ignore="DuplicateIds" />
 
                     <TextView
-                        android:id="@+id/textView240"
+                        android:id="@+id/tv_sewing"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -262,7 +262,7 @@
                         tools:ignore="DuplicateIds" />
 
                     <TextView
-                        android:id="@+id/textView240"
+                        android:id="@+id/tv_knitting"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -307,7 +307,7 @@
                         tools:ignore="DuplicateIds" />
 
                     <TextView
-                        android:id="@+id/textView240"
+                        android:id="@+id/tv_pottery"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"

@@ -1,8 +1,11 @@
 package com.example.souklalla;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Base64;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -31,16 +34,28 @@ public class PRODUCTBUY extends AppCompatActivity {
 
 
 
-        Intent inten;
-        inten = getIntent();
-        String nam=inten.getStringExtra("product_name");
-        name.setText(nam);
-        String des=inten.getStringExtra("product_desc");
-        desc.setText(des);
-        int pric=inten.getIntExtra("product_price",0);
-        price.setText(String.valueOf(pric));
-        int img=inten.getIntExtra("product_img",0);
-        im.setImageResource(img);
+        Intent inten = getIntent();
+        String prodName = inten.getStringExtra("prod_name");
+        String prodDesc = inten.getStringExtra("prod_desc");
+        String prodPrice = inten.getStringExtra("prod_price");
+        String prodImg = inten.getStringExtra("prod_img");
+
+        // Set the data into the UI elements
+        name.setText(prodName);
+        desc.setText(prodDesc);
+        price.setText(prodPrice);
+
+        // Decode the Base64 image string and set it to ImageView
+        if (prodImg != null) {
+            byte[] decodedString = Base64.decode(prodImg, Base64.DEFAULT);
+            Bitmap decodedBitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+            im.setImageBitmap(decodedBitmap);
+        } else {
+            im.setImageResource(R.drawable.photoo);
+        }
+
+        // Set initial quantity to 1
+        number.setText("1");
 
 
 
@@ -60,7 +75,8 @@ public class PRODUCTBUY extends AppCompatActivity {
         plus.setOnClickListener(v -> {
             int num = Integer.parseInt(number.getText().toString());
             number.setText(String.valueOf(num+1));
-            price.setText(String.valueOf((num+1)*pric));
+            double totalPrice = num * Double.parseDouble(prodPrice);
+            price.setText(String.format("%.2f", totalPrice));
         });
         minus.setOnClickListener(v -> {
             int num = Integer.parseInt(number.getText().toString());
@@ -68,7 +84,8 @@ public class PRODUCTBUY extends AppCompatActivity {
 
             if (num > 1) {
                 number.setText(String.valueOf(num - 1));
-                price.setText(String.valueOf((num - 1) * pric));
+                double totalPrice = (num - 1) * Double.parseDouble(prodPrice);
+                price.setText(String.format("%.2f", totalPrice));
             } else {
                 //Toast.makeText(getApplicationContext(), "Cannot go below 0", Toast.LENGTH_SHORT).show();
             }
