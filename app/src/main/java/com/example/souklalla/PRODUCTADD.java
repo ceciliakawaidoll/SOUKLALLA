@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -85,7 +86,9 @@ public class PRODUCTADD extends AppCompatActivity {
                         String lastName = userSnapshot.child("women_lastn").getValue(String.class);
 
                         // Concatenate name and last name
-                        fullName = (name != null ? name : "") + " " + (lastName != null ? lastName : "");
+                        fullName = (name != null ? name :"") +" "+ (lastName != null ? lastName :"");
+                        fullName = fullName.trim(); // إزالة المسافات الزائدة
+                        Log.d("FullName", fullName);
 
                     }
                 } else {

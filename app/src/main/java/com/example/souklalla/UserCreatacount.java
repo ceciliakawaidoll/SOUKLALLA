@@ -104,6 +104,7 @@ public class UserCreatacount extends AppCompatActivity {
         String lastnameInput = lastname.getText().toString().trim();
         String phoneInput = phone.getText().toString().trim();
         String wilayaInput = wilayaSpinner.getSelectedItem().toString();
+        String img= null;
 
         // Validation
         if (emailInput.isEmpty() || passInput.isEmpty() || pass2Input.isEmpty() || nameInput.isEmpty() ||
@@ -127,7 +128,7 @@ public class UserCreatacount extends AppCompatActivity {
             return;
         }
 
-        user_helperclass helperClass = new user_helperclass(nameInput, passInput, userId, wilayaInput, emailInput, phoneInput, lastnameInput);
+        user_helperclass helperClass = new user_helperclass(nameInput, phoneInput, lastnameInput, emailInput, wilayaInput, passInput, userId,img);
         ref.child(userId).setValue(helperClass)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {

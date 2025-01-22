@@ -17,10 +17,11 @@ public class UserVerification extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.user_verification);
-
+         String userEmail = getIntent().getStringExtra("user_email");
         CardView BACK = findViewById(R.id.cd_back);
         BACK.setOnClickListener(v -> {
             Intent intent = new Intent(UserVerification.this, UserForgotpass.class);
+            intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
 

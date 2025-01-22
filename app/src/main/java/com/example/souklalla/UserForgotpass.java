@@ -2,6 +2,7 @@ package com.example.souklalla;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,10 +20,19 @@ public class UserForgotpass extends AppCompatActivity {
         setContentView(R.layout.user_forgotpass);
 
         CardView BACK = findViewById(R.id.cd_back);
-
+        Button button = findViewById(R.id.bt_user_email);
+          String userEmail = getIntent().getStringExtra("user_email");
         BACK.setOnClickListener(v -> {
             Intent intent = new Intent(UserForgotpass.this, UserLogin.class);
+            intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
+        button.setOnClickListener(v -> {
+            Intent intent = new Intent(UserForgotpass.this, UserVerification.class);
+            intent.putExtra("user_email", userEmail);
+            startActivity(intent);
+        });
+
+
     }
 }

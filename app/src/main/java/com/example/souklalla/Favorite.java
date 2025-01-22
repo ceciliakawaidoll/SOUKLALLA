@@ -19,10 +19,11 @@ public class Favorite extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.favorite);
         CardView BACK= findViewById(R.id.cd_back);
-
+         String userEmail = getIntent().getStringExtra("user_email");
 
         BACK.setOnClickListener(v -> {
             Intent intent = new Intent(Favorite.this, USERCATEGORY.class);
+            intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
 

@@ -18,19 +18,23 @@ public class USERLOGOUTASK extends AppCompatActivity {
         Button btyes = findViewById(R.id.bt_yes);
         Button out = findViewById(R.id.bt_logout);
         CardView BACK = findViewById(R.id.cd_back);
+        String userEmail = getIntent().getStringExtra("user_email");
         BACK.setOnClickListener(v -> {
             Intent intent = new Intent(USERLOGOUTASK.this, USERHOMEPROFILE.class);
+            intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
 
        btyes.setOnClickListener(v -> {
             Intent intent = new Intent(USERLOGOUTASK.this, USERCATEGORY.class);
+            intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
 
 
         out.setOnClickListener(v -> {
             Intent intent = new Intent(USERLOGOUTASK.this, USERHOMEPROFILE.class);
+            intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
 

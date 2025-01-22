@@ -67,14 +67,6 @@ public class Produce_edit extends AppCompatActivity {
         });
 
 
-
-
-
-
-
-
-
-
         BSelectImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,10 +93,6 @@ public class Produce_edit extends AppCompatActivity {
 
 
                 String base64Image = encodeImageToBase64(selectedImageBitmap);
-
-
-
-
 
                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Products");
 

@@ -71,6 +71,7 @@ public class USERCATEGORY extends AppCompatActivity {
 
         notifi.setOnClickListener(v -> {
             Intent intent = new Intent(USERCATEGORY.this, UserNotification.class);
+            intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
 
@@ -86,6 +87,7 @@ public class USERCATEGORY extends AppCompatActivity {
 
        ft.setOnClickListener(v -> {
             Intent intent = new Intent(USERCATEGORY.this, USERASKPRODUCT.class);
+            intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
 

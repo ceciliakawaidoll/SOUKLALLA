@@ -3,7 +3,7 @@ package com.example.souklalla;
 public class user_helperclass {
 
     String user_name,user_lastn,user_phone,user_email,user_wilaya,user_pass,userId;
-
+    String user_img;
     public String getUser_name() {
         return user_name;
     }
@@ -59,8 +59,14 @@ public class user_helperclass {
     public void setUserId(String userId) {
         this.userId = userId;
     }
+    public String getUser_img() {
+        return user_img;
+    }
+    public void setUser_img(String user_img) {
+        this.user_img = user_img;
+    }
 
-    public user_helperclass(String user_name, String user_phone, String user_lastn, String user_email, String user_wilaya, String user_pass, String userId) {
+    public user_helperclass(String user_name, String user_phone, String user_lastn, String user_email, String user_wilaya, String user_pass, String userId, String user_img) {
         this.user_name = user_name;
         this.user_phone = user_phone;
         this.user_lastn = user_lastn;
@@ -68,5 +74,7 @@ public class user_helperclass {
         this.user_wilaya = user_wilaya;
         this.user_pass = user_pass;
         this.userId = userId;
+        this.user_img = user_img;
+
     }
 }

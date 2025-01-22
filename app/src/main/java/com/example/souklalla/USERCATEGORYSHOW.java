@@ -1,7 +1,11 @@
 package com.example.souklalla;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -9,6 +13,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,14 +37,14 @@ public class USERCATEGORYSHOW extends AppCompatActivity {
 
         CardView BACK = findViewById(R.id.cd_back);
         RecyclerView category_list = findViewById(R.id.rv_product);
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+        ColorStateList colorStateList = ContextCompat.getColorStateList(USERCATEGORYSHOW.this, R.color.burgundy);
+        progressBar.setIndeterminateTintList(colorStateList);
+        progressBar.setVisibility(View.VISIBLE);
 
         // Getting the type of products passed through Intent
 
         String prodtype = getIntent().getStringExtra("type");
-
-
-
-
 
         String[] categoryy = new String[]{
                 getIntent().getStringExtra("type1"),
@@ -58,15 +63,12 @@ public class USERCATEGORYSHOW extends AppCompatActivity {
             category_list.setLayoutManager(new LinearLayoutManager(USERCATEGORYSHOW.this));
 
 
-
-
             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Products");
             Query query = databaseReference.orderByChild("prod_type").equalTo(prodtype);
-
-
             query.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    progressBar.setVisibility(View.GONE);
                     if (dataSnapshot.exists()) {
                         // Toast.makeText(USERCATEGORYSHOW.this, "تم العثور على البيانات", Toast.LENGTH_SHORT).show();
                         // Loop through the fetched products and add them to the list
@@ -78,6 +80,8 @@ public class USERCATEGORYSHOW extends AppCompatActivity {
                         }
                         // Notify the adapter that the data has changed so it can refresh the RecyclerView
                         adapter.notifyDataSetChanged();
+                        //progressBar.setVisibility(View.VISIBLE);
+
                     } else {
                         //Toast.makeText(USERCATEGORYSHOW.this, "لم يتم العثور على المنتوجات", Toast.LENGTH_SHORT).show();
                     }
@@ -85,7 +89,9 @@ public class USERCATEGORYSHOW extends AppCompatActivity {
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
+                    progressBar.setVisibility(View.GONE);
                     Toast.makeText(USERCATEGORYSHOW.this, "Error fetching data", Toast.LENGTH_SHORT).show();
+                   // progressBar.setVisibility(View.VISIBLE);
                 }
             });
 
@@ -135,6 +141,7 @@ public class USERCATEGORYSHOW extends AppCompatActivity {
                 quer.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        progressBar.setVisibility(View.GONE);
                         if (dataSnapshot.exists()) {
                             // Toast.makeText(USERCATEGORYSHOW.this, "تم العثور على البيانات", Toast.LENGTH_SHORT).show();
                             // Loop through the fetched products and add them to the list
@@ -146,6 +153,7 @@ public class USERCATEGORYSHOW extends AppCompatActivity {
                             }
                             // Notify the adapter that the data has changed so it can refresh the RecyclerView
                             adapter.notifyDataSetChanged();
+
                         } else {
                            // Toast.makeText(USERCATEGORYSHOW.this, "لم يتم العثور على المنتوجات", Toast.LENGTH_SHORT).show();
                         }
@@ -153,19 +161,13 @@ public class USERCATEGORYSHOW extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
+                        progressBar.setVisibility(View.GONE);
                         Toast.makeText(USERCATEGORYSHOW.this, "Error fetching data", Toast.LENGTH_SHORT).show();
+
                     }
                 });
             }
         }
-
-
-
-
-
-
-
-
 
 
 

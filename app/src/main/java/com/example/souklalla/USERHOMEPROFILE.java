@@ -43,15 +43,18 @@ public class USERHOMEPROFILE extends AppCompatActivity {
 
         setting.setOnClickListener(v -> {
             Intent intent = new Intent(USERHOMEPROFILE.this, Settings.class);
+            intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
         like.setOnClickListener(v -> {
             Intent intent = new Intent(USERHOMEPROFILE.this, Favorite.class);
+            intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
 
         menu.setOnClickListener(v -> {
             Intent intent = new Intent(USERHOMEPROFILE.this, Menu.class);
+            intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
 
@@ -63,17 +66,20 @@ public class USERHOMEPROFILE extends AppCompatActivity {
 
         flot.setOnClickListener(v -> {
             Intent intent = new Intent(USERHOMEPROFILE.this, USERASKPRODUCT.class);
+            intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
 
 
         flotp.setOnClickListener(v -> {
             Intent intent = new Intent(USERHOMEPROFILE.this, UserEditProfile.class);
+            intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
 
         home.setOnClickListener(v -> {
             Intent intent = new Intent(USERHOMEPROFILE.this, USERCATEGORY.class);
+            intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
 
@@ -81,11 +87,13 @@ public class USERHOMEPROFILE extends AppCompatActivity {
 
         passmanager.setOnClickListener(v -> {
             Intent intent = new Intent(USERHOMEPROFILE.this, USERMANAGEPASS.class);
+            intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
 
         imageView.setOnClickListener(v -> {
             Intent intent = new Intent(USERHOMEPROFILE.this, USERLOGOUTASK.class);
+            intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
 

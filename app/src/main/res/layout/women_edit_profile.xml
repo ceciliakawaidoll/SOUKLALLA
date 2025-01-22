@@ -129,6 +129,7 @@
                     android:layout_height="51dp"
                     android:background="@color/transp"
                     android:ems="10"
+                    android:gravity="center"
                     android:inputType="text"
                     tools:ignore="SpeakableTextPresentCheck" />
 
@@ -170,6 +171,7 @@
                         android:layout_height="51dp"
                         android:background="@color/transp"
                         android:ems="10"
+                        android:gravity="center"
                         android:inputType="textEmailAddress"
                         tools:ignore="DuplicateIds,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
@@ -214,6 +216,7 @@
                         android:layout_weight="1"
                         android:background="@color/transp"
                         android:ems="10"
+                        android:gravity="center"
                         android:inputType="phone"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
                 </LinearLayout>

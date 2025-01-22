@@ -20,23 +20,22 @@ public class USERMANAGEPASS extends AppCompatActivity {
         CardView BACK = findViewById(R.id.cd_back);
         TextView textView=findViewById(R.id.tv_forgotpassuser);
 
-
+          String userEmail = getIntent().getStringExtra("user_email");
        textView.setOnClickListener(v -> {
             Intent intent = new Intent(USERMANAGEPASS.this, UserForgotpass.class);
+            intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
 
-        textView.setOnClickListener(v -> {
-            Intent intent = new Intent(USERMANAGEPASS.this, UserForgotpass.class);
-            startActivity(intent);
-        });
         BACK.setOnClickListener(v -> {
             Intent intent = new Intent(USERMANAGEPASS.this, USERHOMEPROFILE.class);
+            intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
 
         pass.setOnClickListener(v -> {
             Intent intent = new Intent(USERMANAGEPASS.this, USERHOMEPROFILE.class);
+            intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
     }

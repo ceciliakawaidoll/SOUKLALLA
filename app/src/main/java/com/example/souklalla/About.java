@@ -19,9 +19,11 @@ public class About extends AppCompatActivity {
         setContentView(R.layout.about);
 
         CardView BACK = findViewById(R.id.cd_back);
+        String userEmail = getIntent().getStringExtra("user_email");
 
         BACK.setOnClickListener(v -> {
             Intent intent = new Intent(About.this, Settings.class);
+            intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
 

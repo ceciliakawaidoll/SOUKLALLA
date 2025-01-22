@@ -18,9 +18,10 @@ public class UserNotification extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.user_notification);
         CardView back= findViewById(R.id.cd_back);
-
+         String userEmail = getIntent().getStringExtra("user_email");
         back.setOnClickListener(v -> {
             Intent intent = new Intent(UserNotification.this, USERCATEGORY.class);
+            intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
     }

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     android:background="@drawable/shopping"
     tools:context=".UserEditProfile">
 
@@ -127,6 +128,7 @@
                     android:id="@+id/editTextText3"
                     android:layout_width="match_parent"
                     android:layout_height="51dp"
+                    android:layout_gravity="center"
                     android:background="@color/transp"
                     android:ems="10"
                     android:inputType="text"
@@ -168,6 +170,7 @@
                         android:id="@+id/editTextTextPassword3"
                         android:layout_width="match_parent"
                         android:layout_height="51dp"
+                        android:layout_gravity="center"
                         android:background="@color/transp"
                         android:ems="10"
                         android:inputType="textEmailAddress"
@@ -211,6 +214,7 @@
                         android:id="@+id/editTextTextPassword6"
                         android:layout_width="match_parent"
                         android:layout_height="51dp"
+                        android:layout_gravity="center"
                         android:layout_weight="1"
                         android:background="@color/transp"
                         android:ems="10"

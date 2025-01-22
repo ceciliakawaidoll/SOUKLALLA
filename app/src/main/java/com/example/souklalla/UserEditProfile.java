@@ -21,13 +21,15 @@ public class UserEditProfile extends AppCompatActivity {
         CardView BACK = findViewById(R.id.cd_back);
         Button button = findViewById(R.id.button7);
 
-
+        String userEmail = getIntent().getStringExtra("user_email");
         button.setOnClickListener(v -> {
             Intent intent = new Intent(UserEditProfile.this, USERHOMEPROFILE.class);
+            intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
         BACK.setOnClickListener(v -> {
             Intent intent = new Intent(UserEditProfile.this, USERHOMEPROFILE.class);
+            intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
     }
