@@ -19,8 +19,10 @@ public class UserNotification extends AppCompatActivity {
         setContentView(R.layout.user_notification);
         CardView back= findViewById(R.id.cd_back);
          String userEmail = getIntent().getStringExtra("user_email");
+        String userId = getIntent().getStringExtra("userId");
         back.setOnClickListener(v -> {
             Intent intent = new Intent(UserNotification.this, USERCATEGORY.class);
+            intent.putExtra("userId", userId);
             intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });

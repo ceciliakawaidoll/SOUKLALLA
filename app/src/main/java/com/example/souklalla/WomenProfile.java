@@ -35,6 +35,7 @@ ImageView i1;
         CardView BACK = findViewById(R.id.cd_back);
         // Retrieve email passed from previous activity
         womenEmail = getIntent().getStringExtra("women_email");
+        String womenId = getIntent().getStringExtra("womenId");
 
         i1=findViewById(R.id.women_prof);
         FloatingActionButton f1=findViewById(R.id.BSelectI1);
@@ -49,7 +50,7 @@ ImageView i1;
 
         String email = getIntent().getStringExtra("women_email");
         if (email == null) {
-            Toast.makeText(this, "حدث خطأ أثناء تحميل البيانات!", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this, "حدث خطأ أثناء تحميل البيانات!", Toast.LENGTH_SHORT).show();
             finish();
             return;
         }
@@ -57,7 +58,7 @@ ImageView i1;
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Womens");
 
         // Query to find the user by email
-        Query query = databaseReference.orderByChild("women_email").equalTo(email);
+        Query query = databaseReference.orderByChild("womenId").equalTo(womenId);
 
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -68,12 +69,13 @@ ImageView i1;
                         String name = userSnapshot.child("women_name").getValue(String.class);
                         String lastName = userSnapshot.child("women_lastn").getValue(String.class);
                         String phone = userSnapshot.child("women_phone").getValue(String.class);
+                        String emaill = userSnapshot.child("women_email").getValue(String.class);
 
                         // Concatenate name and last name
                         String fullName = (name != null ? name : "") + " " + (lastName != null ? lastName : "");
 
                         Fullname.setText(fullName.trim().isEmpty() ? "غير متوفر" : fullName);
-                        Email.setText(email);
+                        Email.setText(emaill != null ? emaill : "غير متوفر");
                         Phone.setText(phone != null ? phone : "غير متوفر");
                     }
                 } else {
@@ -86,17 +88,6 @@ ImageView i1;
                 Toast.makeText(WomenProfile.this, "حدث خطأ أثناء تحميل البيانات!", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
-
-
-
-
-
-
-
-
 
         f1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,6 +103,7 @@ ImageView i1;
 
         BACK.setOnClickListener(v -> {
             Intent intent = new Intent(WomenProfile.this, WomenProfilehome.class);
+            intent.putExtra("womenId", womenId);
             intent.putExtra("women_email", womenEmail);
             startActivity(intent);
         });

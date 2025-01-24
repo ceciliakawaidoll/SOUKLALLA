@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -142,6 +143,14 @@
         <activity
             android:name=".WOMENCREATACOUNT"
             android:exported="false" />
+
+
+        <property
+            android:name="android.adservices.AD_SERVICES_CONFIG"
+            android:resource="@xml/ga_ad_services_config"
+            tools:replace="android:resource"/>
+
+
         <activity
             android:name=".LOGO"
             android:exported="true">
@@ -155,6 +164,13 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713"
+            tools:replace="android:value"
+            />
+
+
     </application>
 
 </manifest>

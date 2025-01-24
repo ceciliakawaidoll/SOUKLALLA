@@ -72,13 +72,13 @@ public class WOMENLOGIN extends AppCompatActivity {
                         // Iterate over the results (should be only one due to unique emails)
                         for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
                             String storedPassword = userSnapshot.child("women_pass").getValue(String.class);
-
+                            String womenId = userSnapshot.getKey();
                             // Check if the entered password matches the stored password
                             if (Objects.equals(storedPassword, Pass)) {
                                 Toast.makeText(WOMENLOGIN.this, "تم تسجيل الدخول بنجاح!", Toast.LENGTH_SHORT).show();
                                 // Navigate to the next activity
                                 Intent intent = new Intent(WOMENLOGIN.this, WOMENHOMEPAGE.class);
-
+                                intent.putExtra("womenId", womenId);
                                 intent.putExtra("women_email", Email);
                                 startActivity(intent);
                                 finish();

@@ -19,14 +19,17 @@ public class USERLOGOUTASK extends AppCompatActivity {
         Button out = findViewById(R.id.bt_logout);
         CardView BACK = findViewById(R.id.cd_back);
         String userEmail = getIntent().getStringExtra("user_email");
+        String userId = getIntent().getStringExtra("userId");
         BACK.setOnClickListener(v -> {
             Intent intent = new Intent(USERLOGOUTASK.this, USERHOMEPROFILE.class);
+            intent.putExtra("userId", userId);
             intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
 
        btyes.setOnClickListener(v -> {
             Intent intent = new Intent(USERLOGOUTASK.this, USERCATEGORY.class);
+            intent.putExtra("userId", userId);
             intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
@@ -34,6 +37,7 @@ public class USERLOGOUTASK extends AppCompatActivity {
 
         out.setOnClickListener(v -> {
             Intent intent = new Intent(USERLOGOUTASK.this, USERHOMEPROFILE.class);
+            intent.putExtra("userId", userId);
             intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });

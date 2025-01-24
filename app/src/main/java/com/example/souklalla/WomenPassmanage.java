@@ -20,14 +20,17 @@ public class WomenPassmanage extends AppCompatActivity {
         setContentView(R.layout.women_passmanage);
         CardView BACK = findViewById(R.id.cd_back);
       TextView pass= findViewById(R.id.tv_fogotpass_women);
+      String womenId = getIntent().getStringExtra("womenId");
 
        pass.setOnClickListener(v -> {
             Intent intent = new Intent(WomenPassmanage.this, WOMENFORGOTPASS.class);
+            intent.putExtra("womenId", womenId);
             startActivity(intent);
         });
 
         BACK.setOnClickListener(v -> {
             Intent intent = new Intent(WomenPassmanage.this, WomenProfilehome.class);
+            intent.putExtra("womenId", womenId);
             startActivity(intent);
         });
 

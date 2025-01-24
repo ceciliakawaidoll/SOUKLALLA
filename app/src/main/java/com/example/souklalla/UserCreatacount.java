@@ -134,6 +134,7 @@ public class UserCreatacount extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         Toast.makeText(this, "لقد قمت بالتسجيل بنجاح!", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(UserCreatacount.this, USERHOMEPROFILE.class);
+                        intent.putExtra("userId", userId);
                         intent.putExtra("user_email", emailInput);
                         startActivity(intent);
                     } else {

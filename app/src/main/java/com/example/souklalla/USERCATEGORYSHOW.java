@@ -43,7 +43,7 @@ public class USERCATEGORYSHOW extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
 
         // Getting the type of products passed through Intent
-
+        String userId = getIntent().getStringExtra("userId");
         String prodtype = getIntent().getStringExtra("type");
 
         String[] categoryy = new String[]{
@@ -174,6 +174,8 @@ public class USERCATEGORYSHOW extends AppCompatActivity {
             // Handling the back button click
             BACK.setOnClickListener(v -> {
                 Intent intent = new Intent(USERCATEGORYSHOW.this, USERCATEGORY.class);
+                intent.putExtra("userId", userId);
+                intent.putExtra("user_email", getIntent().getStringExtra("user_email"));
                 startActivity(intent);
             });
 

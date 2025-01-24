@@ -20,8 +20,10 @@ String womenEmail;
         CardView back= findViewById(R.id.cd_back);
 
         womenEmail = getIntent().getStringExtra("women_email");
+        String womenId = getIntent().getStringExtra("womenId");
         back.setOnClickListener(v -> {
             Intent intent = new Intent(WomenNotification.this, WOMENHOMEPAGE.class);
+            intent.putExtra("womenId", womenId);
             intent.putExtra("women_email", womenEmail);
             startActivity(intent);
         });

@@ -22,14 +22,17 @@ public class USERASKPRODUCT extends AppCompatActivity {
         Button ask= findViewById(R.id.bt_asking);
         CardView BACK = findViewById(R.id.cd_back);
         String userEmail = getIntent().getStringExtra("user_email");
+        String userId = getIntent().getStringExtra("userId");
         BACK.setOnClickListener(v -> {
             Intent intent = new Intent(USERASKPRODUCT.this, USERCATEGORY.class);
+            intent.putExtra("userId", userId);
             intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
 
         ask.setOnClickListener(v -> {
             Intent intent = new Intent(USERASKPRODUCT.this, USERCATEGORY.class);
+            intent.putExtra("userId", userId);
             intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });

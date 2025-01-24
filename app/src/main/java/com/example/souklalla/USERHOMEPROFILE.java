@@ -34,39 +34,46 @@ public class USERHOMEPROFILE extends AppCompatActivity {
 
 
         userEmail = getIntent().getStringExtra("user_email");
+        String userId = getIntent().getStringExtra("userId");
 
         BACK.setOnClickListener(v -> {
             Intent intent = new Intent(USERHOMEPROFILE.this, USERCATEGORY.class);
             intent.putExtra("user_email", userEmail);
+            intent.putExtra("userId", userId);
             startActivity(intent);
         });
 
         setting.setOnClickListener(v -> {
             Intent intent = new Intent(USERHOMEPROFILE.this, Settings.class);
             intent.putExtra("user_email", userEmail);
+            intent.putExtra("userId", userId);
             startActivity(intent);
         });
         like.setOnClickListener(v -> {
             Intent intent = new Intent(USERHOMEPROFILE.this, Favorite.class);
             intent.putExtra("user_email", userEmail);
+            intent.putExtra("userId", userId);
             startActivity(intent);
         });
 
         menu.setOnClickListener(v -> {
             Intent intent = new Intent(USERHOMEPROFILE.this, Menu.class);
             intent.putExtra("user_email", userEmail);
+            intent.putExtra("userId", userId);
             startActivity(intent);
         });
 
        profile.setOnClickListener(v -> {
             Intent intent = new Intent(USERHOMEPROFILE.this, USERPROFILE.class);
            intent.putExtra("user_email", userEmail);
+           intent.putExtra("userId", userId);
             startActivity(intent);
         });
 
         flot.setOnClickListener(v -> {
             Intent intent = new Intent(USERHOMEPROFILE.this, USERASKPRODUCT.class);
             intent.putExtra("user_email", userEmail);
+            intent.putExtra("userId", userId);
             startActivity(intent);
         });
 
@@ -74,12 +81,14 @@ public class USERHOMEPROFILE extends AppCompatActivity {
         flotp.setOnClickListener(v -> {
             Intent intent = new Intent(USERHOMEPROFILE.this, UserEditProfile.class);
             intent.putExtra("user_email", userEmail);
+            intent.putExtra("userId", userId);
             startActivity(intent);
         });
 
         home.setOnClickListener(v -> {
             Intent intent = new Intent(USERHOMEPROFILE.this, USERCATEGORY.class);
             intent.putExtra("user_email", userEmail);
+            intent.putExtra("userId", userId);
             startActivity(intent);
         });
 
@@ -88,12 +97,14 @@ public class USERHOMEPROFILE extends AppCompatActivity {
         passmanager.setOnClickListener(v -> {
             Intent intent = new Intent(USERHOMEPROFILE.this, USERMANAGEPASS.class);
             intent.putExtra("user_email", userEmail);
+            intent.putExtra("userId", userId);
             startActivity(intent);
         });
 
         imageView.setOnClickListener(v -> {
             Intent intent = new Intent(USERHOMEPROFILE.this, USERLOGOUTASK.class);
             intent.putExtra("user_email", userEmail);
+            intent.putExtra("userId", userId);
             startActivity(intent);
         });
 

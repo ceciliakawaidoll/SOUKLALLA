@@ -47,16 +47,17 @@ public class WOMENHOMEPAGE extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
 
         womenEmail = getIntent().getStringExtra("women_email");
+        String womenId = getIntent().getStringExtra("womenId");
 
         RecyclerView category_list = findViewById(R.id.rv_product_home);
         List<product_helperclass> category = new ArrayList<>();
-        categoryAdd_Adapter addAdapter = new categoryAdd_Adapter(category, WOMENHOMEPAGE.this, womenEmail);
+        categoryAdd_Adapter addAdapter = new categoryAdd_Adapter(category, WOMENHOMEPAGE.this, womenId);
 
         category_list.setAdapter(addAdapter);
         category_list.setLayoutManager(new LinearLayoutManager(this));
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Womens");
-        Query query = databaseReference.orderByChild("women_email").equalTo(womenEmail);
+        Query query = databaseReference.orderByChild("womenId").equalTo(womenId);
 
         // Fetch user data and products
         query.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -92,6 +93,7 @@ public class WOMENHOMEPAGE extends AppCompatActivity {
         // Floating Action Button for adding a product
         ft.setOnClickListener(v -> {
             Intent intent = new Intent(WOMENHOMEPAGE.this, PRODUCTADD.class);
+            intent.putExtra("womenId", womenId);
             intent.putExtra("women_email", womenEmail);
             startActivity(intent);
         });
@@ -99,6 +101,7 @@ public class WOMENHOMEPAGE extends AppCompatActivity {
         // Profile button click listener
         profile.setOnClickListener(v -> {
             Intent intent = new Intent(WOMENHOMEPAGE.this, WomenProfilehome.class);
+            intent.putExtra("womenId", womenId);
             intent.putExtra("women_email", womenEmail);
             startActivity(intent);
         });
@@ -106,6 +109,7 @@ public class WOMENHOMEPAGE extends AppCompatActivity {
         // Notification button click listener
         noti.setOnClickListener(v -> {
             Intent intent = new Intent(WOMENHOMEPAGE.this, WomenNotification.class);
+            intent.putExtra("womenId", womenId);
             intent.putExtra("women_email", womenEmail);
             startActivity(intent);
         });

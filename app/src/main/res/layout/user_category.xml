@@ -31,32 +31,32 @@
         app:layout_constraintTop_toBottomOf="@+id/searchView"
         tools:ignore="MissingConstraints">
 
-        <!--<com.google.android.gms.ads.AdView
+        <com.google.android.gms.ads.AdView
             android:id="@+id/adView"
-            android:layout_width="351dp"
-            android:layout_height="89dp"
+            android:layout_width="380dp"
+            android:layout_height="100dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="70dp"
             app:adSize="SMART_BANNER"
             app:adUnitId="ca-app-pub-3940256099942544/9214589741"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingClass" />-->
+            tools:ignore="MissingClass" />
 
         <GridView
             android:id="@+id/gridview"
             android:layout_width="match_parent"
             android:layout_height="402dp"
+            android:layout_marginTop="6dp"
             android:numColumns="2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.985" />
+            app:layout_constraintTop_toBottomOf="@+id/adView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

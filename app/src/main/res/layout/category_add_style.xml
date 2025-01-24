@@ -126,8 +126,8 @@
                 android:id="@+id/imageView6"
                 android:layout_width="117dp"
                 android:layout_height="187dp"
-                app:shapeAppearanceOverlay="@style/circular"
                 android:layout_weight="1"
+                app:shapeAppearanceOverlay="@style/circularph"
                 app:srcCompat="@drawable/iv3" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

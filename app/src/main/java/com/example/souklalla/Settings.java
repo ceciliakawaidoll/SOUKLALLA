@@ -23,8 +23,10 @@ public class Settings extends AppCompatActivity {
         ImageView profile = findViewById(R.id.setting_profile);
         CardView BACK = findViewById(R.id.CD_back);
         String userEmail = getIntent().getStringExtra("user_email");
+        String userId = getIntent().getStringExtra("userId");
        faforit.setOnClickListener(v -> {
             Intent intent = new Intent(Settings.this, Favorite.class);
+            intent.putExtra("userId", userId);
             intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
@@ -32,6 +34,7 @@ public class Settings extends AppCompatActivity {
 
         about.setOnClickListener(v -> {
             Intent intent = new Intent(Settings.this, About.class);
+            intent.putExtra("userId", userId);
             intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
@@ -39,6 +42,7 @@ public class Settings extends AppCompatActivity {
 
        profile.setOnClickListener(v -> {
             Intent intent = new Intent(Settings.this, USERHOMEPROFILE.class);
+            intent.putExtra("userId", userId);
             intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });

@@ -50,6 +50,7 @@ public class USERPROFILE extends AppCompatActivity {
         TextView Fullname=findViewById(R.id.user_fullname);
         TextView Email=findViewById(R.id.user_email);
         TextView Phone=findViewById(R.id.user_phone);
+        String userId = getIntent().getStringExtra("userId");
 
 
 
@@ -63,7 +64,7 @@ public class USERPROFILE extends AppCompatActivity {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
 
         // Query to find the user by email
-        Query query = databaseReference.orderByChild("user_email").equalTo(email);
+        Query query = databaseReference.orderByChild("userId").equalTo(userId);
 
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -75,12 +76,13 @@ public class USERPROFILE extends AppCompatActivity {
                         String lastName = userSnapshot.child("user_lastn").getValue(String.class);
                         String phone = userSnapshot.child("user_phone").getValue(String.class);
                         String photo = userSnapshot.child("user_img").getValue(String.class);
+                        String emaill = userSnapshot.child("user_email").getValue(String.class);
 
                         // Concatenate name and last name
                         String fullName = (name != null ? name : "") + " " + (lastName != null ? lastName : "");
 
                         Fullname.setText(fullName.trim().isEmpty() ? "غير متوفر" : fullName);
-                        Email.setText(email);
+                        Email.setText(emaill != null ? emaill : "غير متوفر");
                         Phone.setText(phone != null ? phone : "غير متوفر");
                         if (photo != null) {
                             byte[] decodedString = Base64.decode(photo, Base64.DEFAULT);
@@ -116,7 +118,7 @@ public class USERPROFILE extends AppCompatActivity {
                 if (base64Image != null) {
                     updates.put("user_img", base64Image);
                 }
-                databaseReference.child(userEmail).updateChildren(updates)
+                databaseReference.child(userId).updateChildren(updates)
                         .addOnSuccessListener(aVoid -> {
                             // Toast.makeText(Produce_edit.this, "تم تعديل المنتج بنجاح", Toast.LENGTH_SHORT).show();
                         })
@@ -134,6 +136,7 @@ public class USERPROFILE extends AppCompatActivity {
 
                 Intent intent = new Intent(USERPROFILE.this, USERHOMEPROFILE.class);
                 intent.putExtra("user_email", userEmail);
+                intent.putExtra("userId",userId);
                 startActivity(intent);
 
             }

@@ -122,8 +122,6 @@ public class Produce_edit extends AppCompatActivity {
                         .addOnFailureListener(e -> {
                             Toast.makeText(Produce_edit.this, "فشل التعديل: " + e.getMessage(), Toast.LENGTH_SHORT).show();
 
-
-
                         });
 
                 Intent intent = new Intent(Produce_edit.this, WOMENHOMEPAGE.class);

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     android:background="@drawable/shopping"
     tools:context=".Produce_edit">
 
@@ -174,9 +175,10 @@
                                 android:id="@+id/prod_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="51dp"
+                                android:layout_gravity="center"
                                 android:background="@color/transp"
                                 android:ems="10"
-                                android:gravity="center_horizontal"
+                                android:gravity="center"
                                 android:inputType="text"
                                 tools:ignore="DuplicateIds,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
@@ -216,10 +218,11 @@
                                 android:id="@+id/prod_desc"
                                 android:layout_width="match_parent"
                                 android:layout_height="130dp"
+                                android:layout_gravity="center"
                                 android:layout_weight="1"
                                 android:background="@color/transp"
                                 android:ems="10"
-                                android:gravity="center_horizontal"
+                                android:gravity="center"
                                 android:inputType="text"
                                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
                         </LinearLayout>
@@ -259,10 +262,11 @@
                                 android:id="@+id/prod_price"
                                 android:layout_width="match_parent"
                                 android:layout_height="51dp"
+                                android:layout_gravity="center"
                                 android:layout_weight="1"
                                 android:background="@color/transp"
                                 android:ems="10"
-                                android:gravity="center_horizontal"
+                                android:gravity="center"
                                 android:inputType="number"
                                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
                         </LinearLayout>

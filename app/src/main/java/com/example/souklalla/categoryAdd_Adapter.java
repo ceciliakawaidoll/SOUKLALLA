@@ -27,13 +27,13 @@ public class categoryAdd_Adapter extends RecyclerView.Adapter<categoryAdd_Adapte
 
     List<product_helperclass> categoryadd;
     Context context;
-    String womenEmail;
+    String womenId;
 
 
-    public categoryAdd_Adapter(List<product_helperclass> categoryadd, Context context, String womenEmail) {
+    public categoryAdd_Adapter(List<product_helperclass> categoryadd, Context context, String womenId) {
         this.categoryadd = categoryadd;
         this.context = context;
-        this.womenEmail = womenEmail;
+        this.womenId = womenId;
     }
 
     @NonNull
@@ -67,7 +67,8 @@ public class categoryAdd_Adapter extends RecyclerView.Adapter<categoryAdd_Adapte
         holder.tv_mod.setOnClickListener(v -> {
             Intent intent=new Intent(context,Produce_edit.class);
             intent.putExtra("prod_id",prod_id);
-            intent.putExtra("women_email",womenEmail);
+            intent.putExtra("womenId",womenId);
+
 
             context.startActivity(intent);
         });

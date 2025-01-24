@@ -19,8 +19,10 @@ public class UserForgotpassfalse extends AppCompatActivity {
         setContentView(R.layout.user_forgotpassfalse);
         CardView BACK = findViewById(R.id.cd_back);
           String userEmail = getIntent().getStringExtra("user_email");
+        String userId = getIntent().getStringExtra("userId");
         BACK.setOnClickListener(v -> {
             Intent intent = new Intent(UserForgotpassfalse.this, UserLogin.class);
+            intent.putExtra("userId", userId);
             intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
