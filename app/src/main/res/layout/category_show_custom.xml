@@ -99,8 +99,7 @@
                         android:id="@+id/tv_likenumber"
                         android:layout_width="196dp"
                         android:layout_height="32dp"
-                        android:gravity="right"
-                        android:text="0" />
+                        android:gravity="right" />
 
                     <CheckBox
                         android:id="@+id/checkBox4"
@@ -132,8 +131,8 @@
                 android:id="@+id/imageView6"
                 android:layout_width="117dp"
                 android:layout_height="187dp"
-                app:shapeAppearanceOverlay="@style/circularpd"
                 android:layout_weight="1"
+                app:shapeAppearanceOverlay="@style/circularph"
                 app:srcCompat="@drawable/iv3" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

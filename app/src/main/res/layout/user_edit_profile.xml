@@ -125,12 +125,13 @@
                     android:orientation="horizontal" />
 
                 <EditText
-                    android:id="@+id/editTextText3"
+                    android:id="@+id/name_ed"
                     android:layout_width="match_parent"
                     android:layout_height="51dp"
                     android:layout_gravity="center"
                     android:background="@color/transp"
                     android:ems="10"
+                    android:gravity="center"
                     android:inputType="text"
                     tools:ignore="SpeakableTextPresentCheck" />
 
@@ -167,12 +168,13 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:id="@+id/editTextTextPassword3"
+                        android:id="@+id/email_ed"
                         android:layout_width="match_parent"
                         android:layout_height="51dp"
                         android:layout_gravity="center"
                         android:background="@color/transp"
                         android:ems="10"
+                        android:gravity="center"
                         android:inputType="textEmailAddress"
                         tools:ignore="DuplicateIds,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
@@ -211,13 +213,15 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:id="@+id/editTextTextPassword6"
+                        android:id="@+id/phone_ed"
                         android:layout_width="match_parent"
                         android:layout_height="51dp"
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:background="@color/transp"
                         android:ems="10"
+                        android:maxLength="10"
+                        android:gravity="center"
                         android:inputType="phone"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
                 </LinearLayout>

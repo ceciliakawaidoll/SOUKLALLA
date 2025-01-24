@@ -124,7 +124,7 @@
                     android:orientation="horizontal" />
 
                 <EditText
-                    android:id="@+id/editTextText3"
+                    android:id="@+id/women_ed"
                     android:layout_width="match_parent"
                     android:layout_height="51dp"
                     android:background="@color/transp"
@@ -166,7 +166,7 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:id="@+id/editTextTextPassword3"
+                        android:id="@+id/emailw_ed"
                         android:layout_width="match_parent"
                         android:layout_height="51dp"
                         android:background="@color/transp"
@@ -210,12 +210,13 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:id="@+id/editTextTextPassword6"
+                        android:id="@+id/phonew_ed"
                         android:layout_width="match_parent"
                         android:layout_height="51dp"
                         android:layout_weight="1"
                         android:background="@color/transp"
                         android:ems="10"
+                        android:maxLength="10"
                         android:gravity="center"
                         android:inputType="phone"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />

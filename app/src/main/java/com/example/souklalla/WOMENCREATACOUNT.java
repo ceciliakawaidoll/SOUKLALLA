@@ -91,6 +91,7 @@ public class WOMENCREATACOUNT extends AppCompatActivity {
 
                 // Redirect to WOMENHOMEPAGE
                 Intent intent = new Intent(WOMENCREATACOUNT.this, WOMENHOMEPAGE.class);
+                intent.putExtra("womenId", womenId);
                 intent.putExtra("women_email", Email);
                 startActivity(intent);
             }

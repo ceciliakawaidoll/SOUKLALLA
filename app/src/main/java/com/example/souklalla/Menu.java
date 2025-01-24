@@ -32,10 +32,12 @@ public class Menu extends AppCompatActivity {
         TextView type7=findViewById(R.id.tv_party);
 
         String userEmail = getIntent().getStringExtra("user_email");
+        String userId = getIntent().getStringExtra("userId");
 
         im1.setOnClickListener(v -> {
                 Intent intent = new Intent(Menu.this, USERCATEGORYSHOW.class);
                 intent.putExtra("type1",type1.getText().toString());
+                intent.putExtra("userId", userId);
                 intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
@@ -44,6 +46,7 @@ public class Menu extends AppCompatActivity {
         im2.setOnClickListener(v -> {
             Intent intent = new Intent(Menu.this, USERCATEGORYSHOW.class);
             intent.putExtra("type2",type2.getText().toString());
+            intent.putExtra("userId", userId);
             intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
@@ -52,6 +55,7 @@ public class Menu extends AppCompatActivity {
         im3.setOnClickListener(v -> {
             Intent intent = new Intent(Menu.this, USERCATEGORYSHOW.class);
             intent.putExtra("type3",type3.getText().toString());
+            intent.putExtra("userId", userId);
             intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
@@ -60,6 +64,7 @@ public class Menu extends AppCompatActivity {
         im4.setOnClickListener(v -> {
             Intent intent = new Intent(Menu.this, USERCATEGORYSHOW.class);
             intent.putExtra("type4",type4.getText().toString());
+            intent.putExtra("userId", userId);
             intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
@@ -68,6 +73,7 @@ public class Menu extends AppCompatActivity {
         im5.setOnClickListener(v -> {
             Intent intent = new Intent(Menu.this, USERCATEGORYSHOW.class);
             intent.putExtra("type5",type5.getText().toString());
+            intent.putExtra("userId", userId);
             intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
@@ -76,6 +82,7 @@ public class Menu extends AppCompatActivity {
         im6.setOnClickListener(v -> {
             Intent intent = new Intent(Menu.this, USERCATEGORYSHOW.class);
             intent.putExtra("type6",type6.getText().toString());
+            intent.putExtra("userId", userId);
             intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });
@@ -84,6 +91,7 @@ public class Menu extends AppCompatActivity {
         im7.setOnClickListener(v -> {
             Intent intent = new Intent(Menu.this, USERCATEGORYSHOW.class);
             intent.putExtra("type7",type7.getText().toString());
+            intent.putExtra("userId", userId);
             intent.putExtra("user_email", userEmail);
             startActivity(intent);
         });

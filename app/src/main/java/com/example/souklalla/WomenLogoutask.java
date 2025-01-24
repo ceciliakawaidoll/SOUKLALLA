@@ -21,8 +21,10 @@ public class WomenLogoutask extends AppCompatActivity {
         CardView BACK = findViewById(R.id.cd_back);
         Button btyes = findViewById(R.id.bt_yes);
         Button out = findViewById(R.id.bt_logout);
+        String womenId = getIntent().getStringExtra("womenId");
         BACK.setOnClickListener(v -> {
             Intent intent = new Intent(WomenLogoutask.this, WomenProfilehome.class);
+            intent.putExtra("womenId", womenId);
             startActivity(intent);
         });
 
@@ -30,12 +32,14 @@ public class WomenLogoutask extends AppCompatActivity {
 
         btyes.setOnClickListener(v -> {
             Intent intent = new Intent(WomenLogoutask.this, WOMENHELLO.class);
+            intent.putExtra("womenId", womenId);
             startActivity(intent);
         });
 
 
         out.setOnClickListener(v -> {
             Intent intent = new Intent(WomenLogoutask.this, WomenProfilehome.class);
+            intent.putExtra("womenId", womenId);
             startActivity(intent);
         });
     }
